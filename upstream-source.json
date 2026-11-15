@@ -1,0 +1,31 @@
+{
+  "id": "agent-traces",
+  "repo": "https://github.com/charpeni/bb-plugins.git",
+  "subdir": "plugins/agent-traces",
+  "catalogueSource": {
+    "url": "https://github.com/charpeni/bb-plugins.git",
+    "subdir": "plugins/agent-traces",
+    "range": "^1.0.0",
+    "tagPrefix": "agent-traces/"
+  },
+  "errors": [],
+  "head": "89d326e355648f9ca9cab969f6ae25a66d8c790c",
+  "files": [
+    [
+      "plugins/agent-traces/package.json",
+      2063
+    ],
+    [
+      "plugins/agent-traces/README.md",
+      8706
+    ],
+    [
+      "plugins/agent-traces/LICENSE",
+      "HTTP Error 404: Not Found"
+    ],
+    [
+      "LICENSE",
+      1076
+    ]
+  ]
+}
