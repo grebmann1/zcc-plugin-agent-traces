@@ -56,7 +56,7 @@ function trace(rows) {
       durationMs: done && time !== void 0 && row.createdAt !== void 0 ? Math.max(0, row.createdAt - time) : null,
       status,
       detail: text(
-        item.output ?? item.result ?? item.error ?? item.arguments ?? item.command ?? item
+        item.aggregatedOutput ?? item.output ?? item.result ?? item.error ?? item.arguments ?? item.command ?? item
       )
     });
   }

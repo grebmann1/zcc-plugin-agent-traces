@@ -102,6 +102,32 @@ it("marks windowed history, caps steps and never invents negative time", () => {
   ).toBe(0);
   expect(trace([])).toMatchObject({ eventCount: 0, truncated: false });
 });
+it("reads the normalized command output field before the command text and bounds it", () => {
+  const result = trace([
+    row(1, "item/started", {
+      id: "cmd",
+      type: "commandExecution",
+      command: "echo preview",
+    }),
+    row(2, "item/completed", {
+      id: "cmd",
+      type: "commandExecution",
+      command: "echo preview",
+      aggregatedOutput: "Preview ready",
+    }),
+    row(3, "item/completed", {
+      id: "large",
+      type: "commandExecution",
+      aggregatedOutput: "x".repeat(7000),
+    }),
+  ]);
+  expect(result.steps[0]).toMatchObject({
+    name: "echo preview",
+    detail: "Preview ready",
+    status: "completed",
+  });
+  expect(result.steps[1].detail).toBe("x".repeat(6000) + "\n[truncated]");
+});
 it("safely formats arbitrary or circular values", () => {
   expect(record([])).toEqual({});
   expect(record(4)).toEqual({});

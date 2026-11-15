@@ -99,7 +99,8 @@ export function trace(rows: Row[]) {
           : null,
       status,
       detail: text(
-        item.output ??
+        item.aggregatedOutput ??
+          item.output ??
           item.result ??
           item.error ??
           item.arguments ??
